@@ -11,13 +11,14 @@ app.use(express.json());
 app.use("/api", generateNumRoute);
 
 const PORT = process.env.PORT || 5000;
+const username = process.env.username;
+const password = process.env.password;
+
 const connectToDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/MyTestDB", {
+    await mongoose.connect(`mongodb+srv://${username}:${password}@cluster0.jeju0ct.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`, {
       bufferCommands: false, // Disable command buffering
     });
-
-
     console.log("database connected");
   } catch (err) {
     console.log("error in connection db", err);

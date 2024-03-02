@@ -4,7 +4,7 @@ const { parentPort } = require("worker_threads");
 const generateNumber = async () => {
   try {
     let data = [];
-    for (let i = 1; i < 100000000; i++) {
+    for (let i = 1; i < 10000; i++) {
       const number = Math.random();
       data.push({ number });
     }
